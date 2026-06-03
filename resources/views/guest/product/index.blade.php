@@ -19,25 +19,12 @@
             <div class="mt-8 border-t border-slate-100 pt-6">
                 <h2 class="text-xs font-black uppercase tracking-[0.2em] text-jasdun-green">Kategori</h2>
                 <div class="mt-4 space-y-3 text-sm text-slate-700">
+                    @foreach ($categories as $category)
                     <label class="flex cursor-pointer items-center gap-3">
-                        <input type="checkbox" value="Premium Series" class="categoryFilter accent-jasdun-green">
-                        Premium Series
+                        <input type="checkbox" value="{{ $category->id }}" class="categoryFilter accent-jasdun-green">
+                        {{ $category->name }}
                     </label>
-
-                    <label class="flex cursor-pointer items-center gap-3">
-                        <input type="checkbox" value="Cookie Series" class="categoryFilter accent-jasdun-green">
-                        Cookie Series
-                    </label>
-
-                    <label class="flex cursor-pointer items-center gap-3">
-                        <input type="checkbox" value="Grand Series" class="categoryFilter accent-jasdun-green">
-                        Grand Series
-                    </label>
-
-                    <label class="flex cursor-pointer items-center gap-3">
-                        <input type="checkbox" value="Budget Series" class="categoryFilter accent-jasdun-green">
-                        Budget Series
-                    </label>
+                    @endforeach
                 </div>
             </div>
 
@@ -99,7 +86,7 @@
                     class="product-card group overflow-hidden bg-white shadow-premium ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-xl"
                     data-index="{{ $loop->index }}"
                     data-name="{{ strtolower($product->name) }}"
-                    data-category="{{ $product->category->name ?? '' }}"
+                    data-category="{{ $product->category_id ?? '' }}"
                     data-type="{{ strtolower($product->type) }}"
                     data-price="{{ $product->price }}">
                     <div class="product-art relative h-64 overflow-hidden bg-jasdun-green">

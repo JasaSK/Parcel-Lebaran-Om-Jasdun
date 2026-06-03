@@ -22,3 +22,8 @@ Route::put('admin/category/{id}', [CategoryController::class, 'update'])->name('
 Route::delete('admin/category/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
 
 Route::get('/admin/product', [ProductController::class, 'index'])->name('admin.product.index');
+Route::get('/admin/product/create', [ProductController::class, 'create'])->name('admin.product.create');
+Route::get('/admin/product/{id}/edit', [ProductController::class, 'edit'])->name('admin.product.edit');
+Route::post('/admin/product/store', [ProductController::class, 'store'])->name('admin.product.store');
+Route::put('/admin/product/{id}', [ProductController::class, 'update'])->name('admin.product.update');
+Route::delete('/admin/product/{id}', [ProductController::class, 'destroy'])->name('admin.product.destroy');

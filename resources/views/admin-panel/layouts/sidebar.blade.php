@@ -32,7 +32,7 @@
             <span>›</span>
         </a>
 
-        <a href="#"
+        <!-- <a href="#"
             class="flex items-center justify-between px-4 py-3 transition hover:bg-jasdun-cream hover:text-jasdun-green">
             <span>Pesanan</span>
             <span>›</span>
@@ -42,10 +42,10 @@
             class="flex items-center justify-between px-4 py-3 transition hover:bg-jasdun-cream hover:text-jasdun-green">
             <span>Kontak Toko</span>
             <span>›</span>
-        </a>
+        </a> -->
     </nav>
 
-    <div class="mt-10 border-t border-slate-100 pt-6">
+    <!-- <div class="mt-10 border-t border-slate-100 pt-6">
         <p class="text-xs font-bold uppercase tracking-widest text-slate-400">
             Login sebagai
         </p>
@@ -67,5 +67,5 @@
                 Logout
             </button>
         </form>
-    </div>
+    </div> -->
 </aside>

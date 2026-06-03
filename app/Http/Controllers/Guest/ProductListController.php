@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -11,7 +12,8 @@ class ProductListController extends Controller
     public function index()
     {
         $products = Product::with('images')->get();
-        return view('guest.product.index', compact('products'));
+        $categories = Category::all();
+        return view('guest.product.index', compact('products', 'categories'));
     }
 
 
