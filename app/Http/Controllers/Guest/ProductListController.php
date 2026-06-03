@@ -4,11 +4,20 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductListController extends Controller
 {
     public function index()
     {
-        return view('guest.product.index');
+        $products = Product::with('images')->get();
+        return view('guest.product.index', compact('products'));
+    }
+
+
+    public function detail($id)
+    {
+        $product = Product::with('images')->findOrFail($id);
+        return view('guest.product.detail', compact('product'));
     }
 }

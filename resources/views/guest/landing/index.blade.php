@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('guest.layouts.master')
 
 @section('content')
 <!-- Hero -->
@@ -56,59 +56,110 @@
   <div class="mx-auto max-w-7xl px-5 lg:px-8">
     <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div>
-        <h2 class="font-display text-3xl font-bold text-jasdun-green md:text-4xl">Koleksi Terlaris</h2>
-        <p class="mt-3 max-w-2xl text-slate-600">Kurasi parcel terbaik kami yang paling banyak diminati musim ini. Kualitas premium dengan sentuhan personal untuk momen spesial.</p>
+        <p class="text-xs font-black uppercase tracking-[0.3em] text-jasdun-gold">
+          Produk Pilihan
+        </p>
+        <h2 class="mt-3 font-display text-3xl font-bold text-jasdun-green md:text-4xl">
+          Koleksi Terlaris
+        </h2>
+        <p class="mt-3 max-w-2xl text-slate-600">
+          Kurasi parcel terbaik kami yang paling banyak diminati musim ini.
+          Kualitas premium dengan sentuhan personal untuk momen spesial.
+        </p>
       </div>
-      <a href="#" class="text-sm font-bold uppercase tracking-widest text-jasdun-gold hover:text-jasdun-green">Semua Produk →</a>
+
+      <a href="{{ route('product.index') }}"
+        class="text-sm font-bold uppercase tracking-widest text-jasdun-gold hover:text-jasdun-green">
+        Semua Produk →
+      </a>
     </div>
 
-    <div class="grid gap-7 md:grid-cols-3">
-      <article class="group bg-white shadow-premium ring-1 ring-slate-100">
-        <div class="product-art relative h-56 overflow-hidden">
-          <span class="absolute left-4 top-4 bg-jasdun-gold px-3 py-1 text-[10px] font-black uppercase tracking-widest text-jasdun-green">Best Seller</span>
-          <div class="absolute inset-x-8 bottom-6 rounded-2xl border border-jasdun-gold/30 bg-white/10 p-6 text-center backdrop-blur-sm">
-            <div class="text-5xl">🎁</div>
-          </div>
-        </div>
-        <div class="p-6 text-center">
-          <p class="text-xs font-bold uppercase tracking-[0.25em] text-jasdun-gold">Premium Series</p>
-          <h3 class="mt-2 font-display text-2xl font-bold text-jasdun-green">Hampers Al-Mubarak</h3>
-          <p class="mt-2 text-2xl font-black text-jasdun-green">Rp 1.250.000</p>
-          <button class="mt-5 w-full border-2 border-jasdun-green px-5 py-2 text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-green hover:text-white">Tambah Ke Keranjang</button>
-        </div>
-      </article>
+    <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+      @forelse($products as $product)
+      @php
+      $firstImage = $product->images->first();
 
-      <article class="group bg-white shadow-premium ring-1 ring-slate-100">
-        <div class="product-art relative h-56 overflow-hidden">
-          <div class="absolute inset-x-8 bottom-6 rounded-2xl border border-jasdun-gold/30 bg-white/10 p-6 text-center backdrop-blur-sm">
-            <div class="text-5xl">🍪</div>
-          </div>
-        </div>
-        <div class="p-6 text-center">
-          <p class="text-xs font-bold uppercase tracking-[0.25em] text-jasdun-gold">Cookie Series</p>
-          <h3 class="mt-2 font-display text-2xl font-bold text-jasdun-green">Paket Safiyah</h3>
-          <p class="mt-2 text-2xl font-black text-jasdun-green">Rp 750.000</p>
-          <button class="mt-5 w-full border-2 border-jasdun-green px-5 py-2 text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-green hover:text-white">Tambah Ke Keranjang</button>
-        </div>
-      </article>
+      $imageUrl = asset('images/no-image.png');
 
-      <article class="group bg-white shadow-premium ring-1 ring-slate-100">
-        <div class="product-art relative h-56 overflow-hidden">
-          <div class="absolute inset-x-8 bottom-6 rounded-2xl border border-jasdun-gold/30 bg-white/10 p-6 text-center backdrop-blur-sm">
-            <div class="text-5xl">🧺</div>
+      if ($firstImage && $firstImage->image_path) {
+      if (str_starts_with($firstImage->image_path, 'http://') || str_starts_with($firstImage->image_path, 'https://')) {
+      $imageUrl = $firstImage->image_path;
+      } else {
+      $imageUrl = asset('storage/' . $firstImage->image_path);
+      }
+      }
+      @endphp
+
+      <article class="group overflow-hidden rounded-[1.5rem] bg-white shadow-premium ring-1 ring-slate-100 transition hover:-translate-y-2 hover:shadow-2xl">
+        <!-- Product Image -->
+        <div class="relative h-64 overflow-hidden bg-slate-100">
+          <img src="{{ $imageUrl }}"
+            alt="{{ $product->name }}"
+            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+
+          <span class="absolute left-4 top-4 rounded-full bg-jasdun-gold px-4 py-2 text-[10px] font-black uppercase tracking-widest text-jasdun-green">
+            Best Seller
+          </span>
+
+          <div class="absolute bottom-4 left-4 right-4">
+            <p class="text-xs font-black uppercase tracking-[0.25em] text-jasdun-gold2">
+              Premium Series
+            </p>
+            <h3 class="mt-1 font-display text-2xl font-black text-white">
+              {{ $product->name }}
+            </h3>
           </div>
         </div>
-        <div class="p-6 text-center">
-          <p class="text-xs font-bold uppercase tracking-[0.25em] text-jasdun-gold">Grand Series</p>
-          <h3 class="mt-2 font-display text-2xl font-bold text-jasdun-green">Grand Raya Parcel</h3>
-          <p class="mt-2 text-2xl font-black text-jasdun-green">Rp 2.400.000</p>
-          <button class="mt-5 w-full border-2 border-jasdun-green px-5 py-2 text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-green hover:text-white">Tambah Ke Keranjang</button>
+
+        <!-- Product Info -->
+        <div class="p-6">
+          <p class="line-clamp-2 min-h-[3.5rem] text-sm leading-7 text-slate-600">
+            {{ $product->description ?? 'Produk hampers premium dengan kemasan elegan untuk momen spesial.' }}
+          </p>
+
+          <div class="mt-5 flex items-center justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">
+                Harga
+              </p>
+              <p class="mt-1 text-2xl font-black text-jasdun-green">
+                Rp {{ number_format($product->price, 0, ',', '.') }}
+              </p>
+            </div>
+
+            <div class="rounded-full bg-jasdun-green/10 px-3 py-2 text-xs font-black text-jasdun-green">
+              Ready
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-3">
+            <a href="{{ route('product.detail', $product->id) }}"
+              class="rounded-full bg-jasdun-green px-5 py-3 text-center text-sm font-black uppercase tracking-widest text-white transition hover:bg-jasdun-green2">
+              Lihat Detail
+            </a>
+
+            <a href="https://wa.me/6281234567890?text=Halo%20OM%20JASDUN,%20saya%20ingin%20pesan%20{{ urlencode($product->name) }}"
+              class="rounded-full border-2 border-jasdun-green px-5 py-3 text-center text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-green hover:text-white">
+              Pesan WhatsApp
+            </a>
+          </div>
         </div>
       </article>
+      @empty
+      <div class="col-span-full rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-10 text-center">
+        <p class="font-display text-2xl font-bold text-jasdun-green">
+          Belum ada produk
+        </p>
+        <p class="mt-2 text-sm text-slate-500">
+          Produk akan tampil otomatis setelah data produk dan gambar ditambahkan.
+        </p>
+      </div>
+      @endforelse
     </div>
   </div>
 </section>
-
 <!-- Features -->
 <section id="about" class="luxury-pattern py-14 text-white">
   <div class="mx-auto grid max-w-7xl gap-8 px-5 text-center sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
