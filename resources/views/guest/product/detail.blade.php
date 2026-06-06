@@ -200,7 +200,7 @@ $mainImage = $firstImage ? productImageUrl($firstImage->image_path) : asset('ima
                                 🛒 Keranjang
                             </button>
 
-                            <a href="https://wa.me/6281234567890?text=Halo%20OM%20JASDUN,%20saya%20ingin%20pesan%20{{ urlencode($product->name) }}"
+                            <a href="https://wa.me/6285935359648?text=Halo%20OM%20JASDUN,%20saya%20ingin%20pesan%20{{ urlencode($product->name) }}"
                                 class="rounded-full border-2 border-jasdun-green px-6 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-jasdun-green transition hover:-translate-y-1 hover:bg-jasdun-green hover:text-white">
                                 💬 WhatsApp
                             </a>

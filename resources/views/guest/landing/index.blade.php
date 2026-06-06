@@ -1,8 +1,32 @@
 @extends('guest.layouts.master')
 
 @section('content')
+<!-- Plugin CSS: AOS Animation + Swiper Slider -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<style>
+  .testimonial-swiper {
+    padding: 0.5rem 0.5rem 3.5rem;
+  }
+
+  .testimonial-swiper .swiper-pagination-bullet-active {
+    background: #c9a227;
+  }
+
+  .testimonial-swiper .swiper-button-next,
+  .testimonial-swiper .swiper-button-prev {
+    color: #0f3d2e;
+  }
+
+  .testimonial-swiper .swiper-button-next::after,
+  .testimonial-swiper .swiper-button-prev::after {
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+</style>
 <!-- Hero -->
-<section id="home" class="luxury-pattern relative overflow-hidden text-white">
+<section id="home" class="luxury-pattern relative overflow-hidden text-white" data-aos="fade-down">
   <div class="absolute inset-0 opacity-10">
     <div class="mx-auto grid h-full max-w-7xl grid-cols-3">
       <div class="border-x border-white/30"></div>
@@ -26,25 +50,25 @@
 </section>
 
 <!-- Categories -->
-<section id="kategori" class="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+<section id="kategori" class="mx-auto max-w-7xl px-5 py-16 lg:px-8" data-aos="fade-up">
   <div class="mb-10 text-center">
     <h2 class="font-display text-3xl font-bold text-jasdun-green md:text-4xl">Kategori Pilihan</h2>
   </div>
 
   <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1">
+    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1" data-aos="zoom-in">
       <h3 class="font-display text-2xl font-bold">Parcel Premium</h3>
       <a href="#produk" class="mt-2 text-xs font-bold uppercase tracking-widest text-jasdun-gold2">Lihat Koleksi →</a>
     </article>
-    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1">
+    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1" data-aos="zoom-in">
       <h3 class="font-display text-2xl font-bold">Hampers Kue Kering</h3>
       <a href="#produk" class="mt-2 text-xs font-bold uppercase tracking-widest text-jasdun-gold2">Lihat Koleksi →</a>
     </article>
-    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1">
+    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1" data-aos="zoom-in">
       <h3 class="font-display text-2xl font-bold">Paket Sembako</h3>
       <a href="#produk" class="mt-2 text-xs font-bold uppercase tracking-widest text-jasdun-gold2">Lihat Koleksi →</a>
     </article>
-    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1">
+    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1" data-aos="zoom-in">
       <h3 class="font-display text-2xl font-bold">Gift Box Custom</h3>
       <a href="#produk" class="mt-2 text-xs font-bold uppercase tracking-widest text-jasdun-gold2">Lihat Koleksi →</a>
     </article>
@@ -52,7 +76,7 @@
 </section>
 
 <!-- Best Seller Products -->
-<section id="produk" class="bg-white py-16">
+<section id="produk" class="bg-white py-16" data-aos="fade-up">
   <div class="mx-auto max-w-7xl px-5 lg:px-8">
     <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div>
@@ -90,7 +114,7 @@
       }
       @endphp
 
-      <article class="group overflow-hidden rounded-[1.5rem] bg-white shadow-premium ring-1 ring-slate-100 transition hover:-translate-y-2 hover:shadow-2xl">
+      <article class="group overflow-hidden rounded-[1.5rem] bg-white shadow-premium ring-1 ring-slate-100 transition hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up">
         <!-- Product Image -->
         <div class="relative h-64 overflow-hidden bg-slate-100">
           <img src="{{ $imageUrl }}"
@@ -161,7 +185,7 @@
   </div>
 </section>
 <!-- Features -->
-<section id="about" class="luxury-pattern py-14 text-white">
+<section id="about" class="luxury-pattern py-14 text-white" data-aos="fade-up">
   <div class="mx-auto grid max-w-7xl gap-8 px-5 text-center sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
     <div class="p-4">
       <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-jasdun-gold text-jasdun-gold2">✦</div>
@@ -187,7 +211,7 @@
 </section>
 
 <!-- Order Steps -->
-<section id="order" class="bg-white py-16">
+<section id="order" class="bg-white py-16" data-aos="fade-up">
   <div class="mx-auto max-w-6xl px-5 text-center lg:px-8">
     <h2 class="font-display text-3xl font-bold text-jasdun-green md:text-4xl">Cara Memesan</h2>
     <p class="mt-3 text-slate-600">Langkah mudah untuk mengirimkan kebahagiaan.</p>
@@ -212,44 +236,105 @@
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="bg-slate-50 py-16">
+<!-- Testimonials Slider: Plugin Swiper.js -->
+<section class="bg-slate-50 py-16" data-aos="fade-up">
   <div class="mx-auto max-w-7xl px-5 lg:px-8">
     <h2 class="text-center font-display text-3xl font-bold text-jasdun-green md:text-4xl">Apa Kata Mereka?</h2>
-    <div class="mt-10 grid gap-7 md:grid-cols-3">
-      <figure class="bg-white p-7 shadow-lg">
-        <div class="text-3xl text-jasdun-gold">“</div>
-        <blockquote class="mt-2 text-sm leading-8 text-slate-600">Parcel yang dikirim sangat mewah. Rekanan bisnis saya sangat terkesan dengan packagingnya yang premium.</blockquote>
-        <figcaption class="mt-6">
-          <p class="font-bold text-jasdun-green">Anisa Rahmawati</p>
-          <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Corporate Client</p>
-        </figcaption>
-      </figure>
-      <figure class="bg-white p-7 shadow-lg">
-        <div class="text-3xl text-jasdun-gold">“</div>
-        <blockquote class="mt-2 text-sm leading-8 text-slate-600">Kue keringnya enak banget, bener-bener rasa premium. Box-nya cantik dan cocok untuk oleh-oleh.</blockquote>
-        <figcaption class="mt-6">
-          <p class="font-bold text-jasdun-green">Budi Santoso</p>
-          <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Repeat Customer</p>
-        </figcaption>
-      </figure>
-      <figure class="bg-white p-7 shadow-lg">
-        <div class="text-3xl text-jasdun-gold">“</div>
-        <blockquote class="mt-2 text-sm leading-8 text-slate-600">Pengiriman sangat rapi dan tepat waktu. Adminnya responsif membantu custom pesanan kantor kami.</blockquote>
-        <figcaption class="mt-6">
-          <p class="font-bold text-jasdun-green">Indah Permata</p>
-          <p class="text-xs font-bold uppercase tracking-widest text-slate-400">HR Manager</p>
-        </figcaption>
-      </figure>
+
+    <div class="testimonial-swiper swiper mt-10">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide h-auto">
+          <figure class="h-full bg-white p-7 shadow-lg">
+            <div class="text-3xl text-jasdun-gold">“</div>
+            <blockquote class="mt-2 text-sm leading-8 text-slate-600">Parcel yang dikirim sangat mewah. Rekanan bisnis saya sangat terkesan dengan packagingnya yang premium.</blockquote>
+            <figcaption class="mt-6">
+              <p class="font-bold text-jasdun-green">Anisa Rahmawati</p>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Corporate Client</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="swiper-slide h-auto">
+          <figure class="h-full bg-white p-7 shadow-lg">
+            <div class="text-3xl text-jasdun-gold">“</div>
+            <blockquote class="mt-2 text-sm leading-8 text-slate-600">Kue keringnya enak banget, bener-bener rasa premium. Box-nya cantik dan cocok untuk oleh-oleh.</blockquote>
+            <figcaption class="mt-6">
+              <p class="font-bold text-jasdun-green">Budi Santoso</p>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Repeat Customer</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="swiper-slide h-auto">
+          <figure class="h-full bg-white p-7 shadow-lg">
+            <div class="text-3xl text-jasdun-gold">“</div>
+            <blockquote class="mt-2 text-sm leading-8 text-slate-600">Pengiriman sangat rapi dan tepat waktu. Adminnya responsif membantu custom pesanan kantor kami.</blockquote>
+            <figcaption class="mt-6">
+              <p class="font-bold text-jasdun-green">Indah Permata</p>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">HR Manager</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev hidden md:flex"></div>
+      <div class="swiper-button-next hidden md:flex"></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="contact" class="luxury-pattern px-5 py-16 text-center text-white lg:px-8">
+<section id="contact" class="luxury-pattern px-5 py-16 text-center text-white lg:px-8" data-aos="zoom-in">
   <h2 class="font-display text-3xl font-bold md:text-4xl">Butuh Bantuan Memilih?</h2>
   <p class="mx-auto mt-4 max-w-2xl leading-8 text-white/80">Tim customer service kami siap membantu Anda memilih parcel terbaik atau mendiskusikan kebutuhan pesanan custom dalam jumlah besar.</p>
-  <a href="https://wa.me/6281234567890" class="mt-8 inline-flex items-center justify-center gap-2 bg-white px-8 py-3 text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-gold2">Konsultasi Via WhatsApp</a>
+  <a href="https://wa.me/6285935359648" class="mt-8 inline-flex items-center justify-center gap-2 bg-white px-8 py-3 text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-gold2">Konsultasi Via WhatsApp</a>
 </section>
+
+
+<!-- Plugin JS: AOS Animation + Swiper Slider -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Plugin 1: AOS Animation
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 80
+    });
+
+    // Plugin 2: Swiper.js untuk slider testimoni
+    new Swiper('.testimonial-swiper', {
+      loop: true,
+      grabCursor: true,
+      spaceBetween: 24,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1
+        },
+        768: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      }
+    });
+  });
+</script>
 
 @endsection

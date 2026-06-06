@@ -108,74 +108,85 @@
             <table class="w-full min-w-[820px] text-left">
                 <thead class="bg-slate-50 text-xs uppercase tracking-widest text-slate-500">
                     <tr>
+                        <th class="px-6 py-4">No</th>
                         <th class="px-6 py-4">Produk</th>
-                        <th class="px-6 py-4">Nama Pembeli</th>
-                        <th class="px-6 py-4">Jumlah</th>
-                        <th class="px-6 py-4">Total Harga</th>
-                        <th class="px-6 py-4">Status Pesanan</th>
-                        <th class="px-6 py-4">Aksi</th>
+                        <th class="px-6 py-4">Kategori</th>
+                        <th class="px-6 py-4">Harga</th>
+                        <th class="px-6 py-4">Gambar</th>
                     </tr>
                 </thead>
 
                 <tbody class="divide-y divide-slate-100">
-                    @foreach ($latestOrders as $order)
+                    @forelse ($products as $key => $product)
+                    @php
+                    $firstImage = $product->images->first();
+
+                    $imageUrl = asset('images/no-image.png');
+
+                    if ($firstImage && $firstImage->image_path) {
+                    if (str_starts_with($firstImage->image_path, 'http://') || str_starts_with($firstImage->image_path, 'https://')) {
+                    $imageUrl = $firstImage->image_path;
+                    } else {
+                    $imageUrl = asset('storage/' . $firstImage->image_path);
+                    }
+                    }
+                    @endphp
+
                     <tr class="transition hover:bg-jasdun-cream/40">
+                        <td class="px-6 py-5 font-bold text-slate-600">
+                            {{ $key + 1 }}
+                        </td>
+
                         <td class="px-6 py-5">
                             <div class="flex items-center gap-4">
-                                <div class="grid h-12 w-12 place-items-center bg-jasdun-green text-2xl text-white">
-                                    🎁
-                                </div>
+                                <img src="{{ $imageUrl }}"
+                                    alt="{{ $product->name }}"
+                                    class="h-16 w-16 rounded-xl object-cover ring-1 ring-slate-100">
+
                                 <div>
                                     <p class="font-bold text-jasdun-green">
-                                        {{ $order['product'] }}
+                                        {{ $product->name }}
                                     </p>
-                                    <p class="text-xs text-slate-500">
-                                        Produk Premium
+                                    <p class="mt-1 line-clamp-1 max-w-xs text-xs text-slate-500">
+                                        {{ $product->description ?? 'Tidak ada deskripsi.' }}
                                     </p>
                                 </div>
                             </div>
                         </td>
 
                         <td class="px-6 py-5">
-                            <p class="font-bold text-slate-700">
-                                {{ $order['buyer'] }}
-                            </p>
-                            <p class="text-sm text-slate-500">
-                                {{ $order['email'] }}
-                            </p>
-                        </td>
-
-                        <td class="px-6 py-5 font-semibold text-slate-700">
-                            {{ $order['qty'] }}
-                        </td>
-
-                        <td class="px-6 py-5 font-bold text-jasdun-green">
-                            Rp {{ number_format($order['total'], 0, ',', '.') }}
-                        </td>
-
-                        <td class="px-6 py-5">
-                            @php
-                            $statusClass = match($order['status']) {
-                            'Konfirmasi' => 'bg-blue-50 text-blue-700',
-                            'Menunggu' => 'bg-yellow-50 text-yellow-700',
-                            'Diproses' => 'bg-purple-50 text-purple-700',
-                            'Selesai' => 'bg-emerald-50 text-emerald-700',
-                            default => 'bg-slate-100 text-slate-700',
-                            };
-                            @endphp
-
-                            <span class="{{ $statusClass }} px-3 py-1 text-xs font-black uppercase tracking-widest">
-                                {{ $order['status'] }}
+                            <span class="bg-jasdun-gold/20 px-3 py-1 text-xs font-black uppercase tracking-widest text-jasdun-green">
+                                {{ $product->category->name ?? '-' }}
                             </span>
                         </td>
 
+                        <td class="px-6 py-5 font-bold text-jasdun-green">
+                            Rp {{ number_format($product->price, 0, ',', '.') }}
+                        </td>
+
                         <td class="px-6 py-5">
-                            <button class="font-bold text-jasdun-green hover:text-jasdun-gold">
-                                Detail
-                            </button>
+                            <span class="bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-widest text-slate-600">
+                                {{ $product->images_count ?? $product->images->count() }} Foto
+                            </span>
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="6" class="px-6 py-14 text-center">
+                            <h3 class="font-display text-2xl font-black text-jasdun-green">
+                                Belum ada produk
+                            </h3>
+                            <p class="mt-2 text-sm text-slate-500">
+                                Silakan tambahkan produk terlebih dahulu.
+                            </p>
+
+                            <a href="{{ route('products.create') }}"
+                                class="mt-6 inline-block bg-jasdun-green px-5 py-3 text-xs font-black uppercase tracking-widest text-white transition hover:bg-jasdun-green2">
+                                + Tambah Produk
+                            </a>
+                        </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

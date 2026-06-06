@@ -104,9 +104,6 @@
                     <tr>
                         <th class="px-6 py-4">No</th>
                         <th class="px-6 py-4">Nama Kategori</th>
-                        <th class="px-6 py-4">Deskripsi</th>
-                        <th class="px-6 py-4">Jumlah Produk</th>
-                        <th class="px-6 py-4">Status</th>
                         <th class="px-6 py-4 text-right">Aksi</th>
                     </tr>
                 </thead>
@@ -133,24 +130,6 @@
                                     </p>
                                 </div>
                             </div>
-                        </td>
-
-                        <td class="px-6 py-5">
-                            <p class="line-clamp-2 text-sm leading-6 text-slate-600">
-                                {{ $category->description ?? 'Tidak ada deskripsi.' }}
-                            </p>
-                        </td>
-
-                        <td class="px-6 py-5">
-                            <span class="bg-jasdun-gold/20 px-3 py-1 text-xs font-black uppercase tracking-widest text-jasdun-green">
-                                {{ $category->products_count ?? 0 }} Produk
-                            </span>
-                        </td>
-
-                        <td class="px-6 py-5">
-                            <span class="bg-emerald-50 px-3 py-1 text-xs font-black uppercase tracking-widest text-emerald-700">
-                                Aktif
-                            </span>
                         </td>
 
                         <td class="px-6 py-5">

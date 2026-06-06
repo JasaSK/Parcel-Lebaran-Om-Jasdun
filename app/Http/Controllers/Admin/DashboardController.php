@@ -18,39 +18,14 @@ class DashboardController extends Controller
         $totalOrders = 12;
         $totalRevenue = 15400000;
 
-        $latestOrders = [
-            [
-                'buyer' => 'Ahmad Sulaiman',
-                'email' => 'sulaiman@email.com',
-                'product' => 'Hampers Eid Classic A',
-                'qty' => '1 Set',
-                'total' => 1250000,
-                'status' => 'Konfirmasi',
-            ],
-            [
-                'buyer' => 'Siti Pertiwi',
-                'email' => 'siti.p@webmail.com',
-                'product' => 'Royal Parcel Platinum',
-                'qty' => '2 Set',
-                'total' => 4800000,
-                'status' => 'Menunggu',
-            ],
-            [
-                'buyer' => 'Budi Pratama',
-                'email' => 'budi_p@corp.id',
-                'product' => 'Paket Berkah Ramadhan',
-                'qty' => '5 Set',
-                'total' => 750000,
-                'status' => 'Diproses',
-            ],
-        ];
+        $products = Product::latest()->take(5)->get();
 
         return view('admin-panel.dashboard.index', compact(
             'totalProducts',
             'totalCategories',
             'totalOrders',
             'totalRevenue',
-            'latestOrders'
+            'products'
         ));
     }
 }
