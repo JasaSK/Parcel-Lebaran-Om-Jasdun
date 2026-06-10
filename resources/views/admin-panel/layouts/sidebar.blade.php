@@ -32,13 +32,17 @@
             <span>›</span>
         </a>
 
-        <!-- <a href="#"
-            class="flex items-center justify-between px-4 py-3 transition hover:bg-jasdun-cream hover:text-jasdun-green">
-            <span>Pesanan</span>
-            <span>›</span>
-        </a>
+        <form action="{{ route('logout') }}" method="POST">
 
-        <a href="#"
+            @csrf
+            <button type="submit"
+                class="flex w-full items-center justify-between px-4 py-3 transition hover:bg-jasdun-cream hover:text-jasdun-green" >
+                <span>Logout</span>
+                <span>›</span>
+            </button>
+        </form>
+
+        <!-- <a href="#"
             class="flex items-center justify-between px-4 py-3 transition hover:bg-jasdun-cream hover:text-jasdun-green">
             <span>Kontak Toko</span>
             <span>›</span>
