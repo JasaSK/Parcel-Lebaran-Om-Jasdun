@@ -16,8 +16,17 @@ return Application::configure(basePath: dirname(__DIR__))
             App\Http\Middleware\CheckLogin::class,
         ]);
     })
-    ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->shouldRenderJsonWhen(
-            fn(Request $request) => $request->is('api/*'),
-        );
-    })->create();
+    ->withExceptions(function (Illuminate\Foundation\Configuration\Exceptions $exceptions): void {
+        $exceptions->render(function (\Throwable $e, \Illuminate\Http\Request $request) {
+            return response(
+                "ROOT ERROR\n" .
+                    "CLASS: " . get_class($e) . "\n" .
+                    "MESSAGE: " . $e->getMessage() . "\n" .
+                    "FILE: " . $e->getFile() . "\n" .
+                    "LINE: " . $e->getLine() . "\n\n" .
+                    "TRACE:\n" . $e->getTraceAsString(),
+                500,
+                ['Content-Type' => 'text/plain; charset=UTF-8']
+            );
+        });
+    });
