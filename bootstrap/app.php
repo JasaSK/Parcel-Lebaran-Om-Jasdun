@@ -29,4 +29,4 @@ return Application::configure(basePath: dirname(__DIR__))
                 ['Content-Type' => 'text/plain; charset=UTF-8']
             );
         });
-    });
+    })->create();
