@@ -9,7 +9,7 @@ use App\Http\Controllers\Guest\ProductListController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/sitemap.xml', function () {
+Route::get('/sitemap', function () {
     $products = Product::latest()->get();
 
     return response()
