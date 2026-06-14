@@ -55,23 +55,13 @@
     <h2 class="font-display text-3xl font-bold text-jasdun-green md:text-4xl">Kategori Pilihan</h2>
   </div>
 
-  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    @foreach ($categories as $category)
     <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1" data-aos="zoom-in">
-      <h3 class="font-display text-2xl font-bold">Parcel Premium</h3>
+      <h3 class="font-display text-2xl font-bold">{{ $category->name }}</h3>
       <a href="#produk" class="mt-2 text-xs font-bold uppercase tracking-widest text-jasdun-gold2">Lihat Koleksi →</a>
     </article>
-    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1" data-aos="zoom-in">
-      <h3 class="font-display text-2xl font-bold">Hampers Kue Kering</h3>
-      <a href="#produk" class="mt-2 text-xs font-bold uppercase tracking-widest text-jasdun-gold2">Lihat Koleksi →</a>
-    </article>
-    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1" data-aos="zoom-in">
-      <h3 class="font-display text-2xl font-bold">Paket Sembako</h3>
-      <a href="#produk" class="mt-2 text-xs font-bold uppercase tracking-widest text-jasdun-gold2">Lihat Koleksi →</a>
-    </article>
-    <article class="category-art group flex min-h-44 flex-col justify-end p-6 text-white shadow-premium transition hover:-translate-y-1" data-aos="zoom-in">
-      <h3 class="font-display text-2xl font-bold">Gift Box Custom</h3>
-      <a href="#produk" class="mt-2 text-xs font-bold uppercase tracking-widest text-jasdun-gold2">Lihat Koleksi →</a>
-    </article>
+    @endforeach
   </div>
 </section>
 
