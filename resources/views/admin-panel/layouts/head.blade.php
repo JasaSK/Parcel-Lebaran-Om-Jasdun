@@ -1,9 +1,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@yield('title', 'Admin OM JASDUN')</title>
+
+    {{-- Admin jangan di-index Google --}}
+    <meta name="robots" content="noindex, nofollow">
+
     <link rel="icon" type="image/png" href="{{ asset('images/logo-omjasdun1.png') }}">
-    <title>OM JASDUN - Parcel Lebaran Premium</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -29,6 +36,7 @@
             }
         }
     </script>
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -54,5 +62,11 @@
                 radial-gradient(circle at 70% 25%, rgba(247, 215, 118, .4), transparent 20%),
                 linear-gradient(135deg, #003c2c, #11251e);
         }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
     </style>
+
+    @stack('head')
 </head>

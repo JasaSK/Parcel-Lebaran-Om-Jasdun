@@ -1,5 +1,5 @@
 @extends('admin-panel.layouts.master')
-
+@section('title', 'Product Admin - OM JASDUN')
 @section('content')
 
 <!-- Main Product Page -->

@@ -1,5 +1,5 @@
 @extends('admin-panel.layouts.master')
-
+@section('title', 'Dashboard Admin - OM JASDUN')
 @section('content')
 <!-- Main Dashboard -->
 <section>

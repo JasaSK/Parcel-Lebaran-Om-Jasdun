@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Allow: /
+
+Disallow: /admin
+Disallow: /dashboard
+
+Sitemap: https://omjasdun.vercel.app/sitemap.xml

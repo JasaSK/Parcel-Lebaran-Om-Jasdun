@@ -1,24 +1,47 @@
 @extends('guest.layouts.master')
 
-@section('content')
-
 @php
-$firstImage = $product->images->first();
+use Illuminate\Support\Str;
 
-function productImageUrl($path) {
-if (!$path) {
-return asset('images/no-image.png');
+function productImageUrl($imagePath)
+{
+if (!$imagePath) {
+return asset('images/logo-omjasdun1.png');
 }
+
+$path = ltrim($imagePath, '/');
 
 if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
-return $path;
+$url = $path;
+} elseif (str_starts_with($path, 'storage/')) {
+$url = asset($path);
+} else {
+$url = asset('storage/' . $path);
 }
 
-return asset('storage/' . $path);
+if (str_contains($url, 'res.cloudinary.com')) {
+$url = str_replace('/upload/', '/upload/f_auto,q_auto,w_900/', $url);
 }
 
-$mainImage = $firstImage ? productImageUrl($firstImage->image_path) : asset('images/no-image.png');
+return $url;
+}
+
+$firstImage = $product->images->first();
+
+$mainImage = $firstImage
+? productImageUrl($firstImage->image_path)
+: asset('images/logo-omjasdun1.png');
+
+$seoImage = $mainImage;
 @endphp
+
+@section('title', $product->name . ' - Parcel Lebaran OM JASDUN')
+@section('meta_description', Str::limit(strip_tags($product->description ?? 'Parcel Lebaran premium dari OM JASDUN.'), 150))
+@section('meta_keywords', $product->name . ', parcel lebaran, hampers premium, om jasdun')
+@section('og_image', $seoImage)
+@section('og_type', 'product')
+
+@section('content')
 
 <main class="bg-[#f8f5ef]">
 
@@ -63,7 +86,8 @@ $mainImage = $firstImage ? productImageUrl($firstImage->image_path) : asset('ima
                         @if($firstImage)
                         <img id="mainPhoto"
                             src="{{ $mainImage }}"
-                            alt="{{ $product->name }}"
+                            alt="Parcel Lebaran {{ $product->name }} OM JASDUN"
+                            loading="lazy"
                             class="h-[360px] w-full rounded-[1.5rem] object-cover shadow-2xl md:h-[500px]">
                         @else
                         <div class="flex h-[360px] w-full items-center justify-center rounded-[1.5rem] bg-white/10 md:h-[500px]">
@@ -257,5 +281,24 @@ $mainImage = $firstImage ? productImageUrl($firstImage->image_path) : asset('ima
         input.value = currentValue;
     }
 </script>
-
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "{{ $product->name }}",
+        "description": "{{ strip_tags($product->description ?? 'Parcel Lebaran premium dari OM JASDUN.') }}",
+        "image": "{{ $seoImage }}",
+        "brand": {
+            "@type": "Brand",
+            "name": "OM JASDUN"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "{{ route('product.detail', $product->id) }}",
+            "priceCurrency": "IDR",
+            "price": "{{ $product->price }}",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+</script>
 @endsection

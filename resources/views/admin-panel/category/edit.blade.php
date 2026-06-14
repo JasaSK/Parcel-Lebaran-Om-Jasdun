@@ -1,5 +1,5 @@
 @extends('admin-panel.layouts.master')
-
+@section('title', 'Category Admin - OM JASDUN')
 @section('content')
 
 <!-- Main Edit Product -->

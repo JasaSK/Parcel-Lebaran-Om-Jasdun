@@ -1,5 +1,8 @@
 @extends('guest.layouts.master')
-
+@section('title', 'Katalog Parcel Lebaran OM JASDUN')
+@section('meta_description', 'Lihat katalog parcel Lebaran OM JASDUN. Tersedia berbagai pilihan hampers premium dengan harga dan kategori yang bisa disesuaikan.')
+@section('meta_keywords', 'katalog parcel, parcel lebaran premium, hampers om jasdun, produk parcel')
+@section('og_image', asset('images/logo-omjasdun1.png'))
 @section('content')
 <!-- Plugin CSS: AOS Animation + Swiper Slider -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
@@ -112,7 +115,8 @@
         <!-- Product Image -->
         <div class="relative h-64 overflow-hidden bg-slate-100">
           <img src="{{ $imageUrl }}"
-            alt="{{ $product->name }}"
+            alt="Parcel Lebaran {{ $product->name }} OM JASDUN"
+            loading="lazy"
             class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
 
           <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
@@ -325,5 +329,20 @@
     </div>
   </div>
 </section>
-
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "OM JASDUN",
+    "description": "Penyedia parcel Lebaran premium dan hampers eksklusif.",
+    "url": "{{ route('landing') }}",
+    "telephone": "+6285935359648",
+    "image": "{{ asset('images/logo-omjasdun1.png') }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ID",
+      "addressLocality": "Indonesia"
+    }
+  }
+</script>
 @endsection

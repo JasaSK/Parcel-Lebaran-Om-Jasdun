@@ -6,8 +6,16 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Guest\LandingController;
 use App\Http\Controllers\Guest\ProductListController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/sitemap.xml', function () {
+    $products = Product::latest()->get();
+
+    return response()
+        ->view('sitemap', compact('products'))
+        ->header('Content-Type', 'application/xml');
+});
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Route::get('/product', [ProductListController::class, 'index'])->name('product.index');

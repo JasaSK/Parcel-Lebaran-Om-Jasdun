@@ -1,5 +1,8 @@
 @extends('guest.layouts.master')
-
+@section('title', 'OM JASDUN - Parcel Lebaran Premium dan Hampers Eksklusif')
+@section('meta_description', 'Pesan parcel Lebaran premium OM JASDUN untuk keluarga, sahabat, dan rekan kerja. Pilihan hampers elegan dengan kemasan mewah dan harga kompetitif.')
+@section('meta_keywords', 'parcel lebaran, hampers lebaran, parcel premium, hampers eksklusif, om jasdun')
+@section('og_image', asset('images/logo-omjasdun1.png'))
 @section('content')
 
 <main class="mx-auto max-w-7xl px-5 py-12 lg:px-8">
@@ -115,7 +118,8 @@
                         <div class="h-full w-full overflow-hidden">
                             @if($imageUrl)
                             <img src="{{ $imageUrl }}"
-                                alt="{{ $product->name }}"
+                                alt="Parcel Lebaran {{ $product->name }} OM JASDUN"
+                                loading="lazy"
                                 class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
                             @else
                             <!-- Fallback jika tidak ada gambar -->
