@@ -25,6 +25,8 @@
     <meta name="twitter:description" content="@yield('meta_description', 'Parcel Lebaran premium dari OM JASDUN.')">
     <meta name="twitter:image" content="@yield('og_image', asset('images/logo-omjasdun1.png'))">
 
+    <meta name="google-site-verification" content="O1_a3bAPl1pGaUaEF1FsZvT-dE5-n2MUcQJorVEHk6c" />
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
