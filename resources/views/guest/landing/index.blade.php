@@ -277,7 +277,54 @@
     </div>
   </div>
 </section>
+<!-- Location Maps -->
+<section id="lokasi" class="bg-white py-16" data-aos="fade-up">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="mb-10 text-center">
+      <p class="text-xs font-black uppercase tracking-[0.3em] text-jasdun-gold">
+        Lokasi Kami
+      </p>
+      <h2 class="mt-3 font-display text-3xl font-bold text-jasdun-green md:text-4xl">
+        Kunjungi OM JASDUN
+      </h2>
+      <p class="mx-auto mt-3 max-w-2xl text-slate-600">
+        Silakan kunjungi lokasi kami atau hubungi admin untuk pemesanan parcel Lebaran.
+      </p>
+    </div>
 
+    <div class="grid gap-8 lg:grid-cols-3">
+      <div class="rounded-[1.5rem] bg-jasdun-cream p-7 shadow-premium">
+        <h3 class="font-display text-2xl font-bold text-jasdun-green">
+          Alamat
+        </h3>
+
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          Jl. Contoh Alamat OM JASDUN, Kota Anda, Indonesia
+        </p>
+
+        <div class="mt-6 space-y-3 text-sm text-slate-700">
+          <p>
+            <span class="font-bold text-jasdun-green">WhatsApp:</span>
+            0859-3535-9648
+          </p>
+          <p>
+            <span class="font-bold text-jasdun-green">Jam Buka:</span>
+            08.00 - 20.00 WIB
+          </p>
+        </div>
+
+        <a href="https://wa.me/6285935359648"
+          class="mt-7 inline-flex rounded-full bg-jasdun-green px-6 py-3 text-sm font-black uppercase tracking-widest text-white transition hover:bg-jasdun-green2">
+          Hubungi Admin
+        </a>
+      </div>
+
+      <div class="overflow-hidden rounded-[1.5rem] shadow-premium ring-1 ring-slate-100 lg:col-span-2">
+        <div id="omjasdun-map"></div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- CTA -->
 <section id="contact" class="luxury-pattern px-5 py-16 text-center text-white lg:px-8" data-aos="zoom-in">
   <h2 class="font-display text-3xl font-bold md:text-4xl">Butuh Bantuan Memilih?</h2>
@@ -285,50 +332,5 @@
   <a href="https://wa.me/6285935359648" class="mt-8 inline-flex items-center justify-center gap-2 bg-white px-8 py-3 text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-gold2">Konsultasi Via WhatsApp</a>
 </section>
 
-
-<!-- Plugin JS: AOS Animation + Swiper Slider -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Plugin 1: AOS Animation
-    AOS.init({
-      duration: 800,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 80
-    });
-
-    // Plugin 2: Swiper.js untuk slider testimoni
-    new Swiper('.testimonial-swiper', {
-      loop: true,
-      grabCursor: true,
-      spaceBetween: 24,
-      autoplay: {
-        delay: 3500,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 1
-        },
-        768: {
-          slidesPerView: 2
-        },
-        1024: {
-          slidesPerView: 3
-        }
-      }
-    });
-  });
-</script>
 
 @endsection

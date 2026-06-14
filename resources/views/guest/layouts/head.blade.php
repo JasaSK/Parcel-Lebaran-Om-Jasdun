@@ -3,6 +3,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="{{ asset('images/logo-omjasdun1.png') }}">
     <title>OM JASDUN - Parcel Lebaran Premium</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -54,6 +57,12 @@
                 linear-gradient(to top, rgba(0, 0, 0, .72), rgba(0, 0, 0, .05)),
                 radial-gradient(circle at 70% 25%, rgba(247, 215, 118, .4), transparent 20%),
                 linear-gradient(135deg, #003c2c, #11251e);
+        }
+
+        #omjasdun-map {
+            height: 420px;
+            width: 100%;
+            z-index: 1;
         }
     </style>
 </head>
