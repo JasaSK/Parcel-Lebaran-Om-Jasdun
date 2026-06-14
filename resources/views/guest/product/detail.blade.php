@@ -281,24 +281,5 @@ $seoImage = $mainImage;
         input.value = currentValue;
     }
 </script>
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "{{ $product->name }}",
-        "description": "{{ strip_tags($product->description ?? 'Parcel Lebaran premium dari OM JASDUN.') }}",
-        "image": "{{ $seoImage }}",
-        "brand": {
-            "@type": "Brand",
-            "name": "OM JASDUN"
-        },
-        "offers": {
-            "@type": "Offer",
-            "url": "{{ route('product.detail', $product->id) }}",
-            "priceCurrency": "IDR",
-            "price": "{{ $product->price }}",
-            "availability": "https://schema.org/InStock"
-        }
-    }
-</script>
+
 @endsection

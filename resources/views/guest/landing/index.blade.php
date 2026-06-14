@@ -1,5 +1,5 @@
 @extends('guest.layouts.master')
-@section('title', 'Katalog Parcel Lebaran OM JASDUN')
+@section('title', 'OM JASDUN - Parcel Lebaran Premium dan Hampers Eksklusif')
 @section('meta_description', 'Lihat katalog parcel Lebaran OM JASDUN. Tersedia berbagai pilihan hampers premium dengan harga dan kategori yang bisa disesuaikan.')
 @section('meta_keywords', 'katalog parcel, parcel lebaran premium, hampers om jasdun, produk parcel')
 @section('og_image', asset('images/logo-omjasdun1.png'))
@@ -329,20 +329,6 @@
     </div>
   </div>
 </section>
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "OM JASDUN",
-    "description": "Penyedia parcel Lebaran premium dan hampers eksklusif.",
-    "url": "{{ route('landing') }}",
-    "telephone": "+6285935359648",
-    "image": "{{ asset('images/logo-omjasdun1.png') }}",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "ID",
-      "addressLocality": "Indonesia"
-    }
-  }
-</script>
+
+
 @endsection
