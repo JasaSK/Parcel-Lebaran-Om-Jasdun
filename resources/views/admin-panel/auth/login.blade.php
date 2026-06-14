@@ -13,8 +13,8 @@
         <!-- Icon & Brand -->
         <div class="text-center mb-6">
             <img src="{{ asset('images/logo-omjasdun.png') }}" alt="Logo HijauKita" class="w-19 h-19 mx-auto">
-            <h2 class="text-2xl font-bold mt-2 bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent">HijauKita</h2>
-            <p class="text-gray-500 text-sm mt-1">Masuk ke ruang hijau Anda</p>
+            <h2 class="text-2xl font-bold mt-2 bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent">Administrator</h2>
+            <p class="text-gray-500 text-sm mt-1">Masuk ke sebagai Administrator</p>
         </div>
 
         <!-- Form Login -->
