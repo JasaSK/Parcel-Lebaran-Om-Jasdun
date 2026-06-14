@@ -158,7 +158,7 @@
               Lihat Detail
             </a>
 
-            <a href="https://wa.me/6281234567890?text=Halo%20OM%20JASDUN,%20saya%20ingin%20pesan%20{{ urlencode($product->name) }}"
+            <a href="https://wa.me/6285935359648?text=Halo%20OM%20JASDUN,%20saya%20ingin%20pesan%20{{ urlencode($product->name) }}"
               class="rounded-full border-2 border-jasdun-green px-5 py-3 text-center text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-green hover:text-white">
               Pesan WhatsApp
             </a>
