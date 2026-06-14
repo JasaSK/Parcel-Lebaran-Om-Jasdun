@@ -16,6 +16,7 @@ Route::get('/sitemap.xml', function () {
         ->view('sitemap', compact('products'))
         ->header('Content-Type', 'application/xml');
 });
+//test
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Route::get('/product', [ProductListController::class, 'index'])->name('product.index');
