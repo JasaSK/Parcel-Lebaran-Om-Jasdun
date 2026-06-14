@@ -15,7 +15,16 @@ class ProductController extends Controller
 {
     private function uploadToCloudinary($image)
     {
-        $cloudinary = new Cloudinary(env('CLOUDINARY_URL'));
+        $cloudinary = new \Cloudinary\Cloudinary([
+            'cloud' => [
+                'cloud_name' => config('services.cloudinary.cloud_name'),
+                'api_key' => config('services.cloudinary.api_key'),
+                'api_secret' => config('services.cloudinary.api_secret'),
+            ],
+            'url' => [
+                'secure' => true,
+            ],
+        ]);
 
         $upload = $cloudinary->uploadApi()->upload(
             $image->getRealPath(),
