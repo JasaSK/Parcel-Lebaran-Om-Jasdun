@@ -46,10 +46,10 @@
                 Cara Pesan
             </a>
 
-            <a href="{{ route('landing') }}#testimoni"
+            <a href="{{ route('landing') }}#lokasi"
                 class="relative py-2 text-slate-700 transition-colors duration-200 hover:text-jasdun-green
         after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-jasdun-gold after:transition-all after:duration-300 hover:after:w-full">
-                Testimoni
+                Lokasi
             </a>
 
         </div>
@@ -77,34 +77,41 @@
         </div>
 
         <!-- Mobile Menu -->
+        <!-- Mobile Menu -->
         <details class="relative md:hidden">
-            <summary class="list-none rounded-md border px-3 py-2 text-sm font-bold text-jasdun-green transition hover:border-jasdun-green hover:bg-jasdun-green hover:text-white">
+            <summary
+                class="flex h-11 min-w-20 cursor-pointer list-none items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-jasdun-green shadow-sm transition active:scale-95">
                 Menu
             </summary>
 
-            <div class="absolute right-0 mt-3 w-64 border bg-white p-4 shadow-xl">
-                <a href="{{ route('landing') }}" class="block py-2 font-semibold transition hover:text-jasdun-green">
+            <div class="fixed left-4 right-4 top-20 z-[9999] rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl">
+                <a href="{{ route('landing') }}"
+                    class="block rounded-xl px-4 py-4 text-base font-bold text-slate-700 transition hover:bg-jasdun-cream hover:text-jasdun-green">
                     Beranda
                 </a>
 
-                <a href="{{ route('product.index') }}" class="block py-2 font-semibold text-jasdun-green">
+                <a href="{{ route('product.index') }}"
+                    class="block rounded-xl px-4 py-4 text-base font-bold text-slate-700 transition hover:bg-jasdun-cream hover:text-jasdun-green">
                     Produk
                 </a>
 
-                <a href="#kategori" class="block py-2 font-semibold transition hover:text-jasdun-green">
+                <a href="{{ route('landing') }}#kategori"
+                    class="block rounded-xl px-4 py-4 text-base font-bold text-slate-700 transition hover:bg-jasdun-cream hover:text-jasdun-green">
                     Kategori
                 </a>
 
-                <a href="{{ route('landing') }}#order" class="block py-2 font-semibold transition hover:text-jasdun-green">
+                <a href="{{ route('landing') }}#order"
+                    class="block rounded-xl px-4 py-4 text-base font-bold text-slate-700 transition hover:bg-jasdun-cream hover:text-jasdun-green">
                     Cara Pesan
                 </a>
 
-                <a href="{{ route('landing') }}#testimoni" class="block py-2 font-semibold transition hover:text-jasdun-green">
-                    Testimoni
+                <a href="{{ route('landing') }}#lokasi"
+                    class="block rounded-xl px-4 py-4 text-base font-bold text-slate-700 transition hover:bg-jasdun-cream hover:text-jasdun-green">
+                    Lokasi
                 </a>
 
                 <a href="https://wa.me/6281234567890"
-                    class="mt-3 block bg-jasdun-green px-4 py-2 text-center font-bold text-white transition hover:bg-jasdun-gold hover:text-jasdun-green">
+                    class="mt-3 block rounded-xl bg-jasdun-green px-4 py-4 text-center text-base font-black text-white transition hover:bg-jasdun-gold hover:text-jasdun-green">
                     WhatsApp
                 </a>
             </div>

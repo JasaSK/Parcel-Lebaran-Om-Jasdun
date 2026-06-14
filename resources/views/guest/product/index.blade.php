@@ -96,12 +96,25 @@
                         </span>
                         @php
                         $firstImage = $product->images->first();
+                        $imageUrl = null;
+
+                        if ($firstImage && $firstImage->image_path) {
+                        $path = ltrim($firstImage->image_path, '/');
+
+                        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+                        $imageUrl = $path;
+                        } elseif (str_starts_with($path, 'storage/')) {
+                        $imageUrl = asset($path);
+                        } else {
+                        $imageUrl = asset('storage/' . $path);
+                        }
+                        }
                         @endphp
 
                         <!-- Product Image -->
                         <div class="h-full w-full overflow-hidden">
-                            @if($firstImage)
-                            <img src="{{ asset('storage/' . $firstImage->image_path) }}"
+                            @if($imageUrl)
+                            <img src="{{ $imageUrl }}"
                                 alt="{{ $product->name }}"
                                 class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
                             @else
