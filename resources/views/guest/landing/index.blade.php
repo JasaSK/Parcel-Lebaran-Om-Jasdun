@@ -325,12 +325,5 @@
     </div>
   </div>
 </section>
-<!-- CTA -->
-<section id="contact" class="luxury-pattern px-5 py-16 text-center text-white lg:px-8" data-aos="zoom-in">
-  <h2 class="font-display text-3xl font-bold md:text-4xl">Butuh Bantuan Memilih?</h2>
-  <p class="mx-auto mt-4 max-w-2xl leading-8 text-white/80">Tim customer service kami siap membantu Anda memilih parcel terbaik atau mendiskusikan kebutuhan pesanan custom dalam jumlah besar.</p>
-  <a href="https://wa.me/6285935359648" class="mt-8 inline-flex items-center justify-center gap-2 bg-white px-8 py-3 text-sm font-black uppercase tracking-widest text-jasdun-green transition hover:bg-jasdun-gold2">Konsultasi Via WhatsApp</a>
-</section>
-
 
 @endsection
