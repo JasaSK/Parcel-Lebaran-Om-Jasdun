@@ -41,8 +41,8 @@
                 }
             }
         });
-    });
--7.9166857,112.6342483
+    }); -
+    7.9166857, 112.6342483
     // Plugin 3: Leaflet Maps
     const omjasdunLat = -7.9166857;
     const omjasdunLng = 112.6342483;
@@ -58,4 +58,39 @@
         .addTo(map)
         .bindPopup('<b>OM JASDUN</b><br>Parcel Lebaran Premium')
         .openPopup();
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        if (!mobileMenuBtn || !mobileMenu || !mobileMenuOverlay) return;
+
+        function openMenu() {
+            mobileMenu.classList.remove('hidden');
+            mobileMenuOverlay.classList.remove('hidden');
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+            mobileMenuOverlay.classList.add('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('hidden')) {
+                openMenu();
+            } else {
+                closeMenu();
+            }
+        });
+
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+
+        mobileMenu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+    });
 </script>

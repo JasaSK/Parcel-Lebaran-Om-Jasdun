@@ -77,14 +77,21 @@
         </div>
 
         <!-- Mobile Menu -->
-        <!-- Mobile Menu -->
-        <details class="relative md:hidden">
-            <summary
-                class="flex h-11 min-w-20 cursor-pointer list-none items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-jasdun-green shadow-sm transition active:scale-95">
+        <div class="md:hidden">
+            <button id="mobileMenuBtn"
+                type="button"
+                class="flex h-11 min-w-20 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-jasdun-green shadow-sm transition active:scale-95">
                 Menu
-            </summary>
+            </button>
 
-            <div class="fixed left-4 right-4 top-20 z-[9999] rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl">
+            <!-- Overlay -->
+            <div id="mobileMenuOverlay"
+                class="fixed inset-0 z-[9998] hidden bg-black/30"></div>
+
+            <!-- Dropdown -->
+            <div id="mobileMenu"
+                class="fixed left-4 right-4 top-20 z-[9999] hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl">
+
                 <a href="{{ route('landing') }}"
                     class="block rounded-xl px-4 py-4 text-base font-bold text-slate-700 transition hover:bg-jasdun-cream hover:text-jasdun-green">
                     Beranda
@@ -115,6 +122,6 @@
                     WhatsApp
                 </a>
             </div>
-        </details>
+        </div>
     </nav>
 </header>
