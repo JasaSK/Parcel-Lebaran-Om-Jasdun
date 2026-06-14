@@ -96,10 +96,14 @@
       $imageUrl = asset('images/no-image.png');
 
       if ($firstImage && $firstImage->image_path) {
-      if (str_starts_with($firstImage->image_path, 'http://') || str_starts_with($firstImage->image_path, 'https://')) {
-      $imageUrl = $firstImage->image_path;
+      $path = ltrim($firstImage->image_path, '/');
+
+      if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+      $imageUrl = $path;
+      } elseif (str_starts_with($path, 'storage/')) {
+      $imageUrl = asset($path);
       } else {
-      $imageUrl = asset('storage/' . $firstImage->image_path);
+      $imageUrl = asset('storage/' . $path);
       }
       }
       @endphp

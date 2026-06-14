@@ -6,12 +6,26 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\ImagePath;
 use App\Models\Product;
+use Cloudinary\Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
+    private function uploadToCloudinary($image)
+    {
+        $cloudinary = new Cloudinary(env('CLOUDINARY_URL'));
+
+        $upload = $cloudinary->uploadApi()->upload(
+            $image->getRealPath(),
+            [
+                'folder' => 'omjasdun/products',
+            ]
+        );
+
+        return $upload['secure_url'];
+    }
     public function index(Request $request)
     {
         $query = Product::with(['category', 'images'])
@@ -79,11 +93,11 @@ class ProductController extends Controller
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                $path = $image->store('products', 'public');
+                $url = $this->uploadToCloudinary($image);
 
                 ImagePath::create([
                     'product_id' => $product->id,
-                    'image_path' => $path,
+                    'image_path' => $url,
                 ]);
             }
         }
@@ -96,7 +110,6 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::with('images')->findOrFail($id);
-        // dd($request->all());
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -126,7 +139,8 @@ class ProductController extends Controller
             'price' => $request->price,
         ]);
 
-        // Hapus gambar lama
+        // Hapus gambar lama dari database.
+        // Kalau gambar lama masih storage lokal, hapus file lokal juga.
         if ($request->filled('delete_images')) {
             $images = $product->images()
                 ->whereIn('id', $request->delete_images)
@@ -141,13 +155,13 @@ class ProductController extends Controller
             }
         }
 
-        // Tambah gambar baru
+        // Tambah gambar baru ke Cloudinary
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                $path = $image->store('products', 'public');
+                $url = $this->uploadToCloudinary($image);
 
                 $product->images()->create([
-                    'image_path' => $path,
+                    'image_path' => $url,
                 ]);
             }
         }
@@ -156,7 +170,6 @@ class ProductController extends Controller
             ->route('admin.product.index')
             ->with('success', 'Produk berhasil diperbarui.');
     }
-
 
 
     public function destroy($id)
