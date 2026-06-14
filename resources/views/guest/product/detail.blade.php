@@ -281,5 +281,38 @@ $seoImage = $mainImage;
         input.value = currentValue;
     }
 </script>
+@php
+$productDescription = strip_tags($product->description ?? 'Parcel Lebaran premium dari OM JASDUN.');
+@endphp
 
+<script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "Product",
+        "name": {
+            !!json_encode($product -> name, JSON_UNESCAPED_UNICODE) !!
+        },
+        "description": {
+            !!json_encode($productDescription, JSON_UNESCAPED_UNICODE) !!
+        },
+        "image": {
+            !!json_encode($seoImage, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!
+        },
+        "brand": {
+            "@@type": "Brand",
+            "name": "OM JASDUN"
+        },
+        "offers": {
+            "@@type": "Offer",
+            "url": {
+                !!json_encode(route('product.detail', $product -> id), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!
+            },
+            "priceCurrency": "IDR",
+            "price": {
+                !!json_encode($product -> price) !!
+            },
+            "availability": "https://schema.org/InStock"
+        }
+    }
+</script>
 @endsection

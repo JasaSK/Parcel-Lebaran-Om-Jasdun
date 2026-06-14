@@ -329,6 +329,21 @@
     </div>
   </div>
 </section>
-
+<script type="application/ld+json">
+  {
+    "@@context": "https://schema.org",
+    "@@type": "Store",
+    "name": "OM JASDUN",
+    "description": "Penyedia parcel Lebaran premium dan hampers eksklusif.",
+    "url": "{{ route('landing') }}",
+    "telephone": "+6285935359648",
+    "image": "{{ asset('images/logo-omjasdun1.png') }}",
+    "address": {
+      "@@type": "PostalAddress",
+      "addressCountry": "ID",
+      "addressLocality": "Indonesia"
+    }
+  }
+</script>
 
 @endsection
