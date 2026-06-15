@@ -39,7 +39,7 @@
   </div>
 
   <div class="relative mx-auto flex min-h-[520px] max-w-7xl flex-col items-center justify-center px-5 py-24 text-center lg:px-8">
-    <p class="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-jasdun-gold2">Edisi Terbatas Lebaran 2024</p>
+    <p class="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-jasdun-gold2">Edisi Terbatas Lebaran 2026</p>
     <h1 class="max-w-4xl font-display text-4xl font-bold leading-tight md:text-6xl">Parcel Lebaran OM JASDUN</h1>
     <p class="mt-5 max-w-2xl text-base leading-8 text-white/80 md:text-lg">Pilihan parcel lebaran terbaik untuk keluarga, sahabat, dan rekan kerja. Hadirkan kehangatan dan kemewahan di hari kemenangan.</p>
 
