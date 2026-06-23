@@ -56,21 +56,7 @@
 
         <!-- Right Menu -->
         <div class="hidden items-center gap-4 md:flex">
-            <label class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">⌕</span>
-                <input id="navSearch" type="search" placeholder="Cari parcel..."
-                    class="w-56 border border-slate-200 bg-slate-50 py-2 pl-9 pr-3 text-sm outline-none transition focus:border-jasdun-green focus:bg-white" />
-            </label>
-
-            <button class="text-xl text-jasdun-green transition hover:-translate-y-0.5 hover:text-jasdun-gold" aria-label="Keranjang">
-                🛒
-            </button>
-
-            <button class="text-xl text-jasdun-green transition hover:-translate-y-0.5 hover:text-jasdun-gold" aria-label="Akun">
-                👤
-            </button>
-
-            <a href="https://wa.me/6281234567890"
+            <a href="https://wa.me/6285935359648"
                 class="bg-jasdun-green px-6 py-2 text-sm font-bold text-white transition duration-200 hover:bg-jasdun-gold hover:text-jasdun-green">
                 WhatsApp
             </a>
